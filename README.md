@@ -74,6 +74,12 @@
 
 Para cargar y ejecutar un archivo en FuzzyCLIPS, usar los siguientes comandos:
 ```sh
+cd FUzzyCLIPS
+cd source
+cd .\fz_clips
+make fzclips
+./fz_clips
+
 (load ./EJEMPLO_01.clp)
 (reset)
 (facts)

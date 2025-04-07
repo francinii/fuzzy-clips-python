@@ -10,8 +10,6 @@
    (medium (10 0) (50 1) (90 0))
    (high (70 0) (100 1) (100 1))))
 
-
-
 (deftemplate FanSpeed
   0 100
   ((slow (0 1) (30 0))
@@ -36,16 +34,6 @@
  =>
   (assert (FanSpeed fast)))
 
-
-
-
 (deffacts sample-facts
   (Temperature (25 0) (25 1) (25 0))
   (Humidity (40 0) (40 1) (40 0)))
-
-
-
-
-
-
-

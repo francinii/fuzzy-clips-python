@@ -1,7 +1,8 @@
+import time
 import numpy as np
 import skfuzzy as fuzz
 import skfuzzy.control as ctrl
-
+start_time = time.time()
 # Definir las variables de entrada
 temperature = ctrl.Antecedent(np.arange(0, 41, 1), 'temperature')
 humidity = ctrl.Antecedent(np.arange(0, 101, 1), 'humidity')
@@ -9,7 +10,7 @@ humidity = ctrl.Antecedent(np.arange(0, 101, 1), 'humidity')
 # Definir la variable de salida
 fan_speed = ctrl.Consequent(np.arange(0, 101, 1), 'fan_speed')
 
-# Definir las funciones para temperatura
+# Definir las funciones de pertenencia para temperatura
 temperature['cold'] = fuzz.trimf(temperature.universe, [0, 0, 10])
 temperature['warm'] = fuzz.trimf(temperature.universe, [5, 20, 30])
 temperature['hot'] = fuzz.trimf(temperature.universe, [25, 40, 40])
@@ -34,9 +35,15 @@ fan_control = ctrl.ControlSystem([rule1, rule2, rule3])
 fan_simulation = ctrl.ControlSystemSimulation(fan_control)
 
 # Establecer valores de entrada y calcular la salida
-fan_simulation.input['temperature'] = 25
+fan_simulation.input['temperature'] = 15
 fan_simulation.input['humidity'] = 40
-fan_simulation.compute()
+
 
 # Mostrar el resultado
+
+fan_simulation.compute()
+end_time = time.time()
+print(f"Hora inicial del proceso de ejecución: {start_time}")
 print(f"Velocidad del ventilador: {fan_simulation.output['fan_speed']}")
+print(f"Hora final del proceso de ejecución: {end_time}")
+print(f"Duración: {(end_time - start_time )* 1000 } milisegundos")
