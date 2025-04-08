@@ -1,5 +1,7 @@
-numpy
-scikit-fuzzy
-scipy
-packaging
-networkx
+narwhals==1.34.0
+networkx==3.4.2
+numpy==2.2.4
+packaging==24.2
+plotly==6.0.1
+scikit-fuzzy==0.5.0
+scipy==1.15.2
