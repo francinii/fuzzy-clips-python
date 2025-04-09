@@ -76,7 +76,6 @@ Para cargar y ejecutar un archivo en FuzzyCLIPS, usar los siguientes comandos:
 ```sh
 cd FUzzyCLIPS
 cd source
-cd .\fz_clips
 make fzclips
 ./fz_clips
 
@@ -90,4 +89,7 @@ make fzclips
 
 Si `fz_clips` se ejecuta correctamente, la instalación ha sido exitosa.
 
+Para correr el script de tiempo se debe ejecutar la siguiente función en el caso de Windows 
+
+Measure-Command { "C:\FuzzyCLIPS\fz_clips" -f ".\EJEMPLO_01.clp" } 
 

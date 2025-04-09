@@ -34,6 +34,17 @@
  =>
   (assert (FanSpeed fast)))
 
+(defrule backup-fan
+  (Temperature ?t)
+  (Humidity ?h)
+  (not (FanSpeed ?)) ; si no se ha definido aún FanSpeed
+ =>
+  (assert (FanSpeed medium)))
+
 (deffacts sample-facts
   (Temperature (25 0) (25 1) (25 0))
   (Humidity (40 0) (40 1) (40 0)))
+
+(reset)
+(run)
+(printout t "Resultado defuzzificado: " (moment-defuzzify 3) crlf)
